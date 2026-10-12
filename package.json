@@ -1,0 +1,16 @@
+{
+  "name": "browser-fps-multiplayer",
+  "version": "1.0.0",
+  "description": "Functional 3D browser-based multiplayer FPS game prototype using Three.js and Socket.io",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "keywords": ["fps", "threejs", "socketio", "multiplayer", "webgl"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
+}

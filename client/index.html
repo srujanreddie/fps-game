@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER-FPS | 3D Multiplayer Browser Shooter</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Socket.io client script served by the Express server -->
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <!-- 3D Canvas Container -->
+  <div id="game-container"></div>
+
+  <!-- In-Game HUD -->
+  <div id="hud">
+    <!-- Center Screen Crosshair & Hitmarker -->
+    <div id="crosshair">
+      <div class="reticle-bar top"></div>
+      <div class="reticle-bar bottom"></div>
+      <div class="reticle-bar left"></div>
+      <div class="reticle-bar right"></div>
+    </div>
+    <div id="hitmarker"></div>
+
+    <!-- Top Status Bar -->
+    <div class="hud-top">
+      <div class="status-badge">
+        <span class="dot-status" id="connection-dot"></span>
+        <span id="player-count">CONNECTING...</span>
+      </div>
+
+      <div class="score-stats">
+        <div class="stat-item">KILLS: <span id="kills-display">0</span></div>
+        <div class="stat-item">DEATHS: <span id="deaths-display">0</span></div>
+      </div>
+
+      <div id="killfeed"></div>
+    </div>
+
+    <!-- Bottom Panel: Health & Ammo -->
+    <div class="hud-bottom">
+      <div class="health-panel">
+        <div class="health-header">
+          <span>SHIELD / VITALITY</span>
+          <span class="health-num" id="health-value">100</span>
+        </div>
+        <div class="health-bar-bg">
+          <div class="health-bar-fill" id="health-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <div class="weapon-panel">
+        <div class="weapon-name">PLASMA CARBINE</div>
+        <div class="ammo-counter"><span id="ammo-val">30</span> <span>/ ∞</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Click-to-Play Blocker Overlay -->
+  <div id="blocker">
+    <div class="modal-content">
+      <h1 class="title-glow">CYBER ARENA</h1>
+      <p class="subtitle">Fast-Paced 3D WebGL Multiplayer First-Person Shooter</p>
+      
+      <button class="play-button" id="play-button">DEPLOY TO BATTLEFIELD</button>
+
+      <div class="controls-guide">
+        <div class="control-item">
+          <span class="key-badge">W A S D</span>
+          <span>Tactical Movement</span>
+        </div>
+        <div class="control-item">
+          <span class="key-badge">MOUSE</span>
+          <span>Aim & Look</span>
+        </div>
+        <div class="control-item">
+          <span class="key-badge">LEFT CLICK</span>
+          <span>Discharge Weapon</span>
+        </div>
+        <div class="control-item">
+          <span class="key-badge">SPACE</span>
+          <span>Thruster Jump</span>
+        </div>
+        <div class="control-item">
+          <span class="key-badge">SHIFT</span>
+          <span>Sprint Acceleration</span>
+        </div>
+        <div class="control-item">
+          <span class="key-badge">ESC</span>
+          <span>Release Pointer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular Game Scripts -->
+  <script src="js/world.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
